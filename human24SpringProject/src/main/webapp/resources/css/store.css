@@ -1,0 +1,198 @@
+@charset "EUC-KR";
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	font-family: 'Nanum Gothic';
+	outline: none;
+	box-sizing: border-box;
+}
+
+ul li {
+	list-style: none;
+}
+
+body {
+	width: 884px;
+	margin: 0 auto;
+	z-index: -1;
+}
+/*********************************************** 장르 메뉴*/
+#genreContainer {
+	width: 300px;
+	margin: 20px;
+	float: left;
+
+}
+
+#menubar {
+	position: relative;
+	border-radius: 5px;
+}
+
+#menubar>.title {
+	font-size: 14px;
+	text-align: center;
+	line-height: 50px;
+	border-bottom: 1px solid #2730ada8;
+	background-color: #3f48ccbb;
+	border-collapse: collapse;
+	color: white;
+	font-weight: bold;
+	width: 150px;
+	height: 50px;
+	border-top: none;
+	cursor: pointer;
+	z-index: 5;
+}
+
+#menubar .title:last-child {
+	border-bottom: none;
+}
+
+.smallTitle {
+	display: none;
+}
+
+.smallTitle li {
+	width: 190px;
+	background-color: white;
+	border: 1px solid #2730ada8;
+	color: black;
+	height: 50px;
+	font-weight: normal;
+	font-size: 13px;
+	transition: 0.25s all;
+	z-index: 5;
+	border-top: none;
+	font-weight: bold;
+}
+
+.smallTitle li:first-child {
+	border-top: 1px solid #2730ada8;
+	z-index: 5;
+}
+
+.smallTitle li:hover {
+	z-index: 5;
+	background-color: #3f48cc;
+	color: white;
+}
+
+.title:hover .smallTitle {
+	z-index: 5;
+	display: inline-block;
+	position: absolute;
+	left: 150px;
+}
+/********************************************** 정렬 */
+#storeContainer {
+	position: relative;
+	top: -330px;
+	left: -50px;
+	padding-top: 10px;
+	width: 600px;
+	float: right;
+	z-index: 1;
+}
+
+#order {
+	text-align: right;
+	margin: 20px 0;
+	margin-right: -30px !important;
+}
+
+#order li {
+	display: inline-block;
+	cursor: pointer;
+	font-size: 14px;
+	padding: 5px;
+	font-weight: bold;
+}
+
+#order li:hover {
+	color: #2730ad;
+	font-weight: bold;
+}
+/********************************************** 책 리스트 테이블 */
+
+
+#booktbl {
+	border: none;
+}
+#bookDiv {
+	margin: 20px 20px 50px 20px;
+	cursor: pointer;
+}
+
+#bookDiv p {
+   margin-bottom: 5px !important;
+    color: #444;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+}
+#bookDiv:hover{
+	font-weight: bold;
+}
+
+.bookTitle {
+	margin: 15px 0 10px !important; 
+    font-size: 15px !important;
+    font-weight: bold;
+    height: 60px !important;
+}
+.imgDiv img {
+	width: 120px;
+	height: 170px;
+	margin-bottom: 10px;
+}
+#genre {
+	margin-left: 15px;
+	font-size: 30px;
+    font-weight: bold;
+    color: #333;
+}
+
+#listPage {
+	text-align: center;
+	margin-top: 50px;
+}
+
+#listPage li {
+	display: inline-block;
+	width: 30px;
+	line-height: 30px;
+	text-align: center;
+	height: 30px;
+	border: 1px solid #ccc;
+	transition: 0.3s all;
+	cursor: pointer;
+}
+
+#listPage li:hover {
+	background-color: black;
+	color: white;
+}
+.blueStar{
+	color: rgb(102, 153, 204);
+}
+.grayStar{
+	color: #ccc;
+	display: inline-block;
+	margin-left: -3px !important;
+}
+.disPer{
+	color: rgb(102, 153, 204);
+}
+footer{
+	position: relative;
+	top: -300px;
+}
+#clearBoth{
+	clear: both;
+}
+.weekDisText{
+	color: tomato;
+}

@@ -1,0 +1,160 @@
+@charset "EUC-KR";
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	font-family: 'Nanum Gothic';
+	outline: none;
+	box-sizing: border-box;
+}
+#title { /*장바구니 타이틀*/
+	margin: 30px 20px;
+}
+
+#infodiv {
+	margin-top: 20px;
+}
+
+tbody img { /* 이미지 크기 설정 */
+	width: 100px;
+	height: 150px;
+}
+
+#navtable {
+	border: 1px solid #ccc;
+}
+#navtable tbody{
+	font-size: 13px;
+	color: #444;
+}
+#navtable th, #navtable td {
+	text-align: center;
+}
+
+#navtable td {
+	line-height: 150px;
+	height: 150px;
+}
+
+.texttd {
+	width: 20%;
+}
+
+#infodiv2 {
+	width: 883px;
+}
+
+#infodiv2 table td {
+	padding-top: 10px;
+}
+
+#infodiv2 table {
+	padding: 20px;
+}
+
+#infodiv2 table input[type="text"], #pointUse {
+	border: none;
+	border-bottom: 1px solid #ccc;
+	padding: 10px;
+	outline: none;
+}
+
+#defaultInfoP {
+	text-align: right;
+}
+
+#infotable {
+	margin: 50px auto;
+	border-collapse: separate;
+	border-spacing: 1px;
+	text-align: center;
+	line-height: 1.5;
+	width: 800px;
+}
+
+.pricetitle {
+	background-color: #ccc;
+}
+
+#infotable th {
+	font-weight: bold;
+	vertical-align: top;
+	color: #fff;
+	background-color: #3f48ccd0;
+	padding: 20px;
+}
+
+#infotable td {
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+	background: white;
+	padding: 20px;
+}
+
+.noBorderBottom {
+	border-bottom: none !important;
+}
+
+#btndiv {
+	text-align: center;
+	margin-top: 55px;
+}
+
+.btn {
+	border-radius: 5px;
+	color: #fff;
+	background-color: #3f48ccc0;
+	border: 1px solid #3f48ccc0;
+	width: 150px;
+	height: 50px;
+	margin-top: 30px;
+	cursor: pointer;
+	transition: 0.3s all;
+}
+.pointBtn{
+	border-radius: 5px;
+	color: #fff;
+	background-color: #3f48ccc0;
+	border: none;
+	padding: 5px;
+	cursor: pointer;
+	transition: 0.3s all;
+	margin-left: 10px;
+}
+.pointBtn:hover{
+	background-color: black;
+}
+.btn:hover {
+	background-color: black;
+}
+
+#btndiv {
+	
+}
+
+.smallTitle {
+	border-bottom: 1px solid gray;
+	margin: 40px 0;
+	padding-bottom: 20px;
+}
+
+#infotable label {
+	margin-right: 15px;
+}
+#f_pricetext{
+	color: tomato;
+	font-weight: bold;
+	font-size: 16px;
+}
+.goDetail{
+	font-weight: bold;
+	font-size: 14px;
+}
+.trEach{
+	cursor:pointer;
+	transition: 0.3s all;
+}
+.trEach:hover{
+	border: 1px solid #2730ad;
+}

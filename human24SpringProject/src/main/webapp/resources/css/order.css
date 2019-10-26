@@ -1,0 +1,41 @@
+@charset "EUC-KR";
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	font-family: 'Nanum Gothic';
+	outline: none;
+	box-sizing: border-box;
+}
+#title{ /*타이틀*/
+    margin: 30px 20px 50px 20px;
+}
+
+
+/****************************** 구매 정보 테이블 *********************************/
+
+#navtable th, #navtable td{
+    text-align: center;
+}
+#navtable td{ /* 테이블 각 td 높이, 글간격 설정 */
+    height: 150px;
+    vertical-align: middle;
+    font-size: 13px;
+	color: #444;
+}
+tbody img{ /* 이미지 크기 설정 */
+    width: 100px;
+    height: 150px;
+}
+
+.date{ /*구매 일자*/
+    font-weight: bold;
+}
+.trEach{
+	cursor:pointer;
+	transition: 0.5s all;
+}
+.trEach:hover{
+	border: 1px solid #2730ad;
+}

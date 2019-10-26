@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.human24.main.idao.adminIDao">
+
+	<!-- 관리자 로그인 -->
+	
+	<select id="loginCheck" parameterType="String" resultType="int">
+		select count(*) from member where user_id = #{param1} and user_pwd = #{param2} and admin_index = 1
+	</select>
+	
+	<!-- 회원 수 출력 -->
+
+	<select resultType="java.lang.Integer" id="memberCount">
+	 	SELECT count(*) FROM member WHERE admin_index = #{param1}
+	 </select>
+	 
+	<!-- 검색한 회원 수  출력 -->
+	
+	<select resultType="java.lang.Integer" id="schMemberCount">
+	 	SELECT count(*) FROM member 
+	 	WHERE admin_index = #{param1} 
+	 	AND ${param2} like '%'|| replace(lower(#{param3}), ' ', '') ||'%'
+	</select>
+
+	<!-- 회원 출력 -->
+	
+
+	<select resultType="com.human24.main.dto.MemberDto" id="memberSelect"> 
+		SELECT * FROM 
+		(
+			SELECT a.*, rownum AS rnum FROM member a 
+			WHERE admin_index = #{param1}
+		)
+		WHERE rnum BETWEEN #{rowStart} AND #{rowEnd}
+	</select>
+	
+	<!-- 회원 검색 출력 -->
+	
+	<select resultType="com.human24.main.dto.MemberDto" id="schMemberSelect"> 
+		SELECT * FROM 
+		(
+			SELECT a.*, rownum AS rnum FROM member a 
+			WHERE admin_index = #{param1}
+			AND ${param2} like '%'|| replace(lower(#{param3}), ' ', '') ||'%'
+		)
+		WHERE rnum BETWEEN #{rowStart} AND #{rowEnd}
+	</select>
+	
+	<!-- 블랙리스트 출력 -->
+	
+	
+	<select resultType="com.human24.main.dto.MemberDto" id="memberSelect2">
+	 	SELECT * FROM member WHERE admin_index = '2' 
+	 </select>
+	
+	<!-- 관리자 출력 -->
+	
+	
+	<select resultType="com.human24.main.dto.MemberDto" id="memberSelect3">
+	 	SELECT * FROM member WHERE admin_index = '1' 
+	</select>
+	
+	<!-- 상세보기 출력 -->
+	
+	
+	<select resultType="com.human24.main.dto.MemberDto" id="memberSelect4">
+	 	SELECT * FROM member WHERE user_id = #{param1} 
+	 </select>
+	
+	<!-- 회원 권한 변경 -->
+	
+	
+	<update id="memberUpdate">
+	 	UPDATE member SET admin_index = #{param1} WHERE user_id = #{param2} 
+	 </update>
+	
+	<!-- 책 갯수 카운트 -->
+	
+	<select resultType="java.lang.Integer" id="bookCount">
+	 	SELECT count(*) 
+	 	FROM booklist
+	 	WHERE ${param1} like '%'|| replace(lower(#{param2}), ' ', '') ||'%'
+	 </select>
+	
+	<!-- 책 관리 출력 -->
+	
+	<select resultType="com.human24.main.dto.bookDto" id="genreSelect" parameterType="map">
+	 	SELECT * FROM 
+		(
+			SELECT a.*, rownum AS rnum
+		 	FROM (select * from booklist ORDER BY 
+		 		<if test='order.equals("default")'>LENGTH(booknum), booknum</if>
+				<if test='order.equals("orderBySellCnt")'>sales_cnt DESC</if>
+				<if test='order.equals("orderByHighPrice")'>LENGTH(price) DESC, price DESC</if>
+				<if test='order.equals("orderByLowPrice")'>LENGTH(price), price</if>
+				<if test='order.equals("orderByGrade")'>grade DESC, sales_cnt DESC</if>
+		 	) a
+		 	WHERE ${param1} like '%'|| replace(lower(#{param2}), ' ', '') ||'%'
+		)
+		WHERE rnum BETWEEN #{rowStart} AND #{rowEnd}
+	 </select>
+	 
+	<!-- 책 상세페이지 -->
+	
+	<select resultType="com.human24.main.dto.bookDto" id="detailSelect">
+	 	SELECT *
+	 	FROM booklist 
+	 	WHERE booknum = #{param1} 
+	 </select>
+	
+	<!-- 책 장르 전체 가져오기 -->
+	
+	
+	<select resultType="com.human24.main.dto.GenreDto" id="genreAll">
+	 	SELECT * FROM genre 
+	 </select>
+	
+	<!-- 책 대장르 리스트 가져오기 -->
+	
+	<select resultType="com.human24.main.dto.GenreDto" id="genreMain">
+	 	SELECT DISTINCT main_genre_name, main_genre_num 
+	 	FROM genre
+	 	ORDER BY main_genre_num
+	 </select>
+	
+	<!-- 책 소장르 리스트 가져오기 -->
+	
+	<select resultType="com.human24.main.dto.GenreDto" id="genreSub">
+	 	SELECT *
+	 	FROM genre 
+	 	WHERE ${param1} = #{param2}
+	 	AND sub_genre_name is not null 
+	 </select>
+	
+	<!-- 책 대장르 이름 가져오기 -->
+	
+	<select resultType="java.lang.String" id="getMainGenreName">
+	 	SELECT DISTINCT main_genre_name 
+	 	FROM genre
+	 	WHERE main_genre_num = #{param1}
+	 </select>
+	 
+	 <!-- 책 소장르 이름 가져오기 -->
+	
+	<select resultType="java.lang.String" id="getSubGenreName">
+	 	SELECT sub_genre_name 
+	 	FROM genre
+	 	WHERE sub_genre_num = #{param1}
+	 </select>
+	
+	<!-- 책 수정 -->
+	
+	
+	<update id="bookModify">
+		 UPDATE booklist 
+		 SET genre = #{param1}, 
+		 	 booktitle = #{param2}, 
+		 	 writer = #{param3},
+		 	 publisher = #{param4},
+		 	 price = #{param5}, 
+		 	 dis_per = #{param6},
+		 	 dis_index = #{param7}, 
+		 	 book_intro = #{param8},
+		 	 main_genre = #{param9} 
+		 WHERE booknum = #{param10}
+	 </update>
+	
+	<!-- 책 추가 -->
+	<insert id="bookInsert">
+		INSERT INTO booklist (GENRE, BOOKTITLE, WRITER, PUBLISHER, PRICE, DIS_PER, DIS_INDEX, BOOK_INTRO, SALES_CNT, COM_CNT, GRADE, BOOKNUM, P_DATE, MAIN_GENRE)
+		VALUES (#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8}, 0, 0, 0, to_char(systimestamp, 'HH24MISSFF3'), sysdate, #{param9})
+	</insert>
+	
+	<!-- 추가한 책 booknum 가져오기 -->
+	<select resultType="java.lang.String" id="bookInsertGetBooknum">
+		SELECT booknum 
+		FROM booklist
+		WHERE genre = #{param1} 
+			  AND booktitle = #{param2} 
+			  AND writer = #{param3} 
+			  AND publisher = #{param4} 
+			  AND price = #{param5} 
+			  AND dis_per = #{param6} 
+			  AND dis_index = #{param7} 
+			  AND book_intro = #{param8}
+	</select>		  
+		  
+	<!-- 책 삭제 -->
+	
+	<delete id="genreDelete">
+	 	DELETE booklist WHERE booknum = #{param1} 
+	</delete>
+	 
+	 
+	<!-- 장르관리 대장르 불러오기 -->
+	<select id="mGenreSelect" resultType="com.human24.main.dto.GenreDto">
+		select * from genre where sub_genre_name is null
+	</select>
+	
+	<!-- 장르상세정보 페이지 -->
+	<select id="genreDetail" resultType="com.human24.main.dto.GenreDto">
+		select * from genre where main_genre_num = #{param1} and sub_genre_name is null
+	</select>
+	
+	<!-- 장르상세페이지 -> 장르 수정페이지 -->
+	<select id="mgenreSelect" resultType="com.human24.main.dto.GenreDto">
+		select * from genre where main_genre_num = #{param1} and sub_genre_name is null
+	</select>
+	
+	<!-- 대장르 수정 -->
+	<update id="bigUpdate">
+		update genre set main_genre_name = #{param1}, use = #{param2} where main_genre_num = #{param3}
+	</update>
+	
+	<!-- 대장르 삭제 -->
+	<delete id="mgenreDelete">
+		delete genre where main_genre_num= #{param1}
+	</delete>
+	
+	<!-- 대장르 해당 책 모두 삭제 -->
+	<delete id="mgenreBookDelete">
+		delete booklist where main_genre = #{param1}
+	</delete>
+	
+	<!-- 대장르 추가 -->
+	<insert id="mgenreInsert">
+		insert into genre (main_genre_num, main_genre_name, use)
+		select to_char(systimestamp, 'HH24MISSFF3'), #{param1}, #{param2} from dual
+	</insert>
+	
+	<!-- 소장르 리스트 불러오기 -->
+	<select id="subSelect" resultType="com.human24.main.dto.GenreDto">
+		select * from genre where main_genre_num = #{param1} and sub_genre_name IS not NULL
+	</select>
+	
+	<!-- 소장르 상세페이지 -->
+	<select id="subSelect2" resultType="com.human24.main.dto.GenreDto">
+		select * from genre where sub_genre_num = #{param1} and sub_genre_name IS not NULL
+	</select>
+	
+	<!-- 소장르 수정 -->
+	<update id="subUpdate">
+		update genre set 
+		main_genre_num = #{param1},
+		main_genre_name = (select distinct main_genre_name from genre where main_genre_num = #{param1}),
+		sub_genre_name = #{param2},
+		use = #{param3}
+		where sub_genre_num = #{param4}
+	</update>
+	
+	<!-- 소장르 추가 -->
+	<insert id="mgenreInsert2">
+		insert into genre(main_genre_name, main_genre_num, sub_genre_num, sub_genre_name, use) 
+		VALUES (#{param1}, #{param2}, (select to_char(systimestamp, 'HH24MISSFF3') from dual), #{param3}, #{param4})
+	</insert>
+	
+	<!-- 소장르 삭제 -->
+	<delete id="mgenreDelete2">
+		delete genre where sub_genre_num = #{param1}
+	</delete>
+	
+	<!-- 소장르 해당 책 모두 삭제 -->
+	<delete id="mgenreBookDelete2">
+		delete booklist where genre = #{param1}
+	</delete>
+	 
+</mapper>

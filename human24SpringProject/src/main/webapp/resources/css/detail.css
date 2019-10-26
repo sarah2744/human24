@@ -1,0 +1,439 @@
+@charset "EUC-KR";
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	font-family: 'Nanum Gothic';
+	outline: none;
+	box-sizing: border-box;
+}
+#wrapping {
+	margin-top: 60px;
+}
+
+.clear {
+	clear: both;
+}
+
+.noshow {
+	display: none;
+}
+/* img 설정 */
+#imgDiv {
+	width: 400px;
+	height: 600px;
+	float: left;
+	margin-right: 50px;
+}
+
+#imgDiv img {
+	width: 100%;
+	height: 100%;
+}
+/* 책 정보 */
+#bookinfoDiv {
+	float: left;
+	width: 430px;
+}
+
+#title {
+	font-size: 25px;
+	margin-bottom: 15px;
+	color: #333;
+	font-weight: bold;
+}
+
+.binfo {
+	border-right: 1px solid #ccc;
+	padding-right: 10px;
+	color: #333;
+	font-size: 12px;
+}
+
+#pdate {
+	border: none;
+	color: #666;
+}
+
+#emptyP {
+	margin: 5px 0;
+}
+
+#grade {
+	color: rgb(102, 153, 204);
+	font-size: 20px;
+}
+
+#gradeNum {
+	font-size: 20px;
+}
+
+#comcnt {
+	color: #333;
+	font-size: 12px;
+	border-right: 1px solid #ccc;
+}
+
+#comcntNum {
+	color: rgb(102, 153, 204);
+}
+
+#gradeNum, #comcnt {
+	padding-right: 10px;
+}
+
+#sellcnt {
+	color: #666;
+	font-size: 12px;
+}
+/* ****************************************************** */
+.borderDiv {
+	height: 1px;
+	background-color: #ccc;
+	margin: 20px 0;
+}
+
+#wrap2 {
+	font-size: 12px;
+	color: #666;
+}
+
+#wrap2 tr td:first-child {
+	width: 52%;
+	padding: 7px 0;
+}
+
+#discount td:nth-child(2) {
+	color: #ff6666;
+}
+
+#disnum {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+#order {
+	border: 1px solid #ccc;
+	width: 143px;
+}
+
+#order input {
+	border: none;
+}
+
+#cnt {
+	outline: none;
+	width: 70px;
+	height: 32px;
+	text-align: center;
+}
+
+.pm {
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	transition: 0.3s all;
+}
+
+.pm:hover {
+	background: black;
+	color: white;
+}
+
+/* ********************************* */
+#orderPrice {
+	padding-left: 15px;
+	color: #6456D6;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+#btntd {
+	text-align: right;
+}
+
+#buybtn {
+	margin-right: 20px;
+}
+
+.btn {
+	border-radius: 5px;
+	font-size: 15px;
+	width: 150px;
+	height: 50px;
+	margin-top: 10px;
+	cursor: pointer;
+	transition: 0.3s all;
+	color: #fff;
+	background-color: #3f48ccc0;
+	border: none;
+}
+
+.btn:hover {
+	background-color: black;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.tab_wrap {
+	width: 883px;
+	margin: 80px auto 0;
+}
+
+.tab_btn:after {
+	content: "";
+	display: block;
+	clear: both;
+	border-bottom: 1px solid #ccc;
+}
+
+.tab_btn li {
+	float: left;
+	display: block;
+	width: 200px;
+	border-radius: 5px;
+	padding: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	border: 1px solid #ccc;
+	text-align: center;
+	cursor: pointer;
+	border-bottom: none;
+	transition: 0.3s all;
+}
+
+.tab_btn li:hover {
+	background: gray;
+	color: white;
+}
+
+.tab_btn li.on {
+	background-color: #ccc;
+	color: black;
+}
+
+.tab_cont {
+	width: 100%;
+	/* height: 800px; */
+	position: relative;
+	margin-bottom: 1000px;
+}
+
+.tab_cont>li {
+	width: 100%;
+	/* height: 800px; */
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: none;
+}
+
+.tab_cont>li:nth-child(1) {
+	display: block;
+	padding: 15px;
+}
+
+#bookintro, #tradetitle {
+	margin: 50px 0 80px;
+	font-size: 40px;
+	font-weight: normal;
+}
+
+#introcon {
+	color: #333;
+	line-height: 25px;
+}
+
+#commentDiv {
+	padding: 15px;
+	margin: 50px 0 80px;
+}
+
+#comtitle {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#comcnttext {
+	color: #666;
+}
+
+#commentDiv p:first-child {
+	margin-left: 50px;
+}
+
+#commentDiv p:nth-child(2) {
+	color: #333;
+	margin-top: 10px;
+	font-size: 13px;
+	margin-left: 50px;
+}
+
+#writeDiv {
+	width: 95%;
+	margin: 0 auto;
+	padding: 30px;
+	background-color: rgb(248, 248, 248);
+	margin-top: 50px;
+	height: 200px;
+	border-radius: 5px;
+}
+
+.star {
+	color: rgb(200, 200, 200);
+	font-size: 25px;
+	cursor: pointer;
+}
+
+#writeDiv textarea {
+	margin-top: 20px;
+	resize: none;
+	width: 585px;
+	height: 75px;
+	padding: 15px;
+	border: 1px solid #ccc;
+	outline: none;
+	float: left;
+	margin-left: 30px;
+}
+
+#submitbtn {
+	width: 75px;
+	height: 75px;
+	margin: 20px 0 0 20px;
+}
+
+#comlistdiv {
+	margin-top: 50px;
+}
+#commentTh th{
+	padding: 10px 0;
+	text-align: center;
+}
+.w3-table {
+	border-collapse: collapse;
+	width: 95%;
+	margin: 0 auto;
+}
+
+.w3-table tr {
+	border-bottom: 1px solid #ccc;
+}
+
+.w3-table th {
+	text-align: center;
+}
+
+#gradetxt {
+	color: #333;
+	margin-right: 10px;
+}
+
+#comcon {
+	width: 60%;
+}
+
+.w3-table td:nth-child(1), .w3-table td:nth-child(2) {
+	text-align: center;
+	width: 20%;
+}
+
+.w3-table tr:last-child {
+	border: none;
+}
+
+.w3-table td {
+	padding: 10px;
+	font-size: 14px;
+}
+
+.comgrade {
+	color: rgb(102, 153, 204);
+}
+
+#tradediv {
+	padding: 20px;
+}
+
+#tradediv h3 {
+	color: #6456d6;
+}
+
+#deliguide {
+	margin: 40px 0 !important;
+}
+
+.deli {
+	border-collapse: collapse;
+	border-top: 1px solid rgb(216, 216, 216);
+}
+
+.deli tr td {
+	padding: 20px;
+}
+
+.deli tr td:first-child {
+	width: 20%;
+	vertical-align: middle;
+	border-right: 1px solid rgb(235, 235, 235);
+	background: rgb(248, 248, 248);
+	text-align: center;
+}
+
+.deli tr td:nth-child(2) {
+	font-size: 12px;
+	color: #666;
+}
+
+.deli tr {
+	border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.deli tr:last-child {
+	border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+#returnguide {
+	margin: 60px 0 10px;
+}
+
+#returntxt {
+	font-size: 13px;
+	color: #666;
+}
+.blueStar{
+	color: rgb(102, 153, 204);
+}
+.grayStar{
+	color: #ccc;
+	display:inline-block;
+	margin-left: -3px !important;
+}
+.grayStarDetail{
+	color: #ccc;
+	display:inline-block;
+	margin-left: -6px !important;
+}
+.disPer{
+	color: rgb(102, 153, 204);
+}
+#comDel{
+	background: transparent;
+	border: 1px solid #ccc;
+	padding: 5px;
+	cursor: pointer;
+}
+#counter{
+	color: #aaa;
+	text-align: right;
+	font-size: 13px;
+	padding: 10px;
+    margin-right: 130px;
+}

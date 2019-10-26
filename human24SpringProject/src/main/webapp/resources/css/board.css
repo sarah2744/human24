@@ -1,0 +1,71 @@
+@charset "EUC-KR";
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	font-family: 'Nanum Gothic';
+	outline: none;
+	box-sizing: border-box;
+}
+#boardTbl td, #boardTbl th {
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+}
+
+.boardConTr {
+	transition: 0.2s all;
+	cursor: pointer;
+}
+
+.boardConTr:hover {
+	background-color: rgba(204, 204, 204, 0.473);
+}
+
+#title {
+	margin: 30px 20px;
+}
+
+#listPage {
+	text-align: center;
+	margin-top: 50px;
+}
+
+#listPage li {
+	display: inline-block;
+	width: 30px;
+	line-height: 30px;
+	text-align: center;
+	height: 30px;
+	border: 1px solid #ccc;
+	transition: 0.3s all;
+	cursor: pointer;
+}
+
+#listPage li:hover {
+	background-color: black;
+	color: white;
+}
+
+/************************************************ ±Û¾²±â ******************************************************/
+#write {
+	text-align: right;
+}
+
+#writeBtn {
+	margin: 10px 0 30px 0;
+	background-color: white;
+	border: 1px solid gray;
+	padding: 4px;
+	color: black;
+	border-radius: 5px;
+	outline: none;
+	cursor: pointer;
+	transition: 0.3s all;
+}
+
+#writeBtn:hover {
+	background-color: black;
+	color: white;
+}

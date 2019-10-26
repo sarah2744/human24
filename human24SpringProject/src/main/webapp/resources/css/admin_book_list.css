@@ -1,0 +1,90 @@
+ 
+    #titleDiv{
+        margin-bottom: 30px;
+    }
+    #genreP{
+        float: left;
+    }
+    #order {
+        text-align: right;
+        margin: 45px 40px !important; 
+        margin-right: 20px;
+    }
+
+    #order li {
+        display: inline-block;
+        cursor: pointer;
+        font-size: 14px;
+        padding: 5px;
+        font-weight: bold;
+    }
+
+    #order li:hover {
+        color: #f2685b;
+    }
+    .orderOn{
+        color: #f2685b;
+    }
+    .btn{
+        padding: 10px 20px;
+        margin-top: 10px;
+        margin-left: 30px;
+    }
+    #listTbl tbody tr td img{
+        width: 120px;
+	    height: 170px;
+    }
+    #listTbl tbody tr td{
+        font-size: 14px;
+        color: #333;
+        font-weight: bold;
+    }
+    #shadowDiv{
+        margin-bottom: 300px;
+    }
+    
+    
+    .blueStar{
+		color: rgb(102, 153, 204);
+	}
+	.grayStar{
+		color: #ccc;
+		display: inline-block;
+		margin-left: -3px !important;
+	}
+
+	#listTitle{
+		color: white;
+		font-size: 30px;
+		font-weight: bold;
+		float: right;
+		padding-right: 10px;
+	}
+	#genreBtn{
+	    padding: 15px 25px;
+	    margin-top: 0px;
+	    margin-left: 30px;
+	    font-size: 20px !important;
+	}
+	#disPerConfigWrap{
+	    display: none;
+	    margin-left: 30px;
+	    padding-left: 15px;
+	    margin-bottom: 20px !important;
+	}
+	#disPerConfig{
+		padding: 15px 25px;
+	    margin-top: 0px;
+	    margin-left: 30px;
+	    font-size: 20px !important;
+	}
+	#defaultDisPerCancel{
+		margin-left: 10px;
+	}
+	#defaultDisPerField{
+		border: none;
+	    outline: none;
+	    border-bottom: 1px solid #ccc;
+	    height: 30px;
+	    padding: 0 10px;	
+	}

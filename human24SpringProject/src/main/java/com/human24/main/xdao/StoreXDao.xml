@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.human24.main.idao.StoreIDao">
+	
+    <!-- 사용여부 Y인 메인 장르 불러오기 -->
+    <select id="useMainGenre" resultType="com.human24.main.dto.GenreDto"> 
+       SELECT * FROM genre WHERE use = 1 AND sub_genre_num IS NULL
+    </select>
+    
+    <!-- 사용여부 Y인 서브 장르 불러오기 -->
+    <select resultType="com.human24.main.dto.GenreDto" id="genreSub">
+	 	SELECT *
+	 	FROM genre 
+	 	WHERE main_genre_num = #{param1}
+	 	AND sub_genre_name is not null AND use = 1
+	 </select>
+	
+	<!-- 장르에 담겨있는 책 갯수 -->
+	<select id="totalCount"
+		resultType="java.lang.Integer">
+		SELECT count(*) FROM booklist WHERE genre = #{param1}
+	</select>
+	
+	<!-- 책리스트 -->
+	<select id = "bookListPage" parameterType="map" resultType = "com.human24.main.dto.bookDto">
+		SELECT * FROM (
+			SELECT a.*, rownum AS rnum 
+			FROM (select * from booklist ORDER BY
+				<if test='value.equals("default")'>LENGTH(booknum), booknum</if>
+				<if test='value.equals("orderBySellCnt")'>sales_cnt DESC</if>
+				<if test='value.equals("orderByHighPrice")'>LENGTH(price) DESC, price DESC</if>
+				<if test='value.equals("orderByLowPrice")'>LENGTH(price), price</if>
+				<if test='value.equals("orderByGrade")'>grade DESC, sales_cnt DESC</if>
+			)a 
+			WHERE genre = #{param1}
+		)
+		where rnum between #{rowStart} and #{rowEnd}
+	</select>
+	
+	<select id = "weekOrBestBook" parameterType="map" resultType = "com.human24.main.dto.bookDto">
+		SELECT * 
+		FROM (SELECT a.*, rownum AS rnum FROM booklist a order by sales_cnt desc)
+		WHERE 1=1 
+		<if test='value.equals("weekBook")'>
+			and dis_index = '1' 
+		</if>
+		<if test='value.equals("bestBook")'>
+			and rownum between 0 and 8
+		</if>
+		<if test='value.equals("mainBestBook")'>
+			and rownum between 0 and 4
+		</if>
+	</select>
+	
+	<select id = "search" resultType = "com.human24.main.dto.bookDto">
+		select * from booklist
+		where replace(lower(booktitle), ' ', '') like '%'|| replace(lower(#{param1}), ' ', '') ||'%'
+	</select>
+	
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.human24.main.idao.AttendanceIDao">
+
+	<select id="attendanceDay"
+		resultType="com.human24.main.dto.AttendanceDto">
+		select * from attendance where user_id = #{param1} and
+		a_year = #{param2} and a_month = #{param3}
+	</select>
+	
+	<insert id="doAttendance">
+		insert into attendance values(#{param1}, #{param2}, #{param3}, #{param4})
+	</insert>
+</mapper>
+    

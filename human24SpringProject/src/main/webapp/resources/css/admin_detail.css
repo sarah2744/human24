@@ -1,0 +1,58 @@
+@charset "EUC-KR";
+#detailTbl{
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid rgb(240, 240, 240);
+    border-bottom: none;
+}
+#detailTbl tr{
+    border-bottom: 1px solid rgb(230, 230, 230);
+    
+}
+#detailTbl tr:last-child{
+    border-bottom: none;
+}
+#detailTbl th, #detailTbl td{
+    padding: 0 20px;
+    height: 60px;
+}
+#detailTbl th{
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(250, 250, 250);
+    width: 15%;
+}
+#detailTbl td{
+    font-size: 13px;
+    color: #555;
+    padding: 15px;
+}
+
+.buttonTd{
+    text-align: center;
+}
+.buttonTd button{
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 5px;
+    margin: 15px 0;
+    transition: 0.3s all;    
+    margin-right: 10px;
+}
+.buttonTd button:hover{
+    color: #f2685b;
+    border: 1px solid #f2685b;
+}
+.buttonTd button:last-child{
+    margin-right: 0;
+}
+
+#detailTbl td img{
+    width: 120px;
+    height: 170px;
+}

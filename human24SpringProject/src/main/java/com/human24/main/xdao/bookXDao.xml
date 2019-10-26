@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.human24.main.idao.bookIDao">
+    
+    <!-- 책 상세페이지 -->
+   <select id="booklist" resultType="com.human24.main.dto.bookDto"> 
+      select * from booklist where booknum = #{param1}
+   </select>
+
+   <select id="buybook" resultType="com.human24.main.dto.bookDto"> 
+      select * from booklist where booknum = #{param1}
+   </select>
+
+   <!-- 책 상세페이지 댓글 보기 -->
+   <select id="commentShow" resultType="com.human24.main.dto.CommentDto">
+      select * from commentlist where booknum = #{param1}
+   </select>
+   
+   <!-- 책 상세페이지 댓글 작성 -->
+   <insert id = "write">
+      insert into commentlist(com_num, user_id, booknum, contents, grade, com_date) 
+      values (com_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, sysdate)
+   </insert>
+   
+   <select id="comNumGet" resultType="java.lang.Integer">
+      select * from commentlist where user_id = #{param1} and booknum = #{param2}
+   </select>
+   
+   <!-- 댓글 작성 시 booklist 테이블 com_cnt 업데이트 -->
+   <update id="commentUpdate">
+   		update booklist set com_cnt=com_cnt+1, grade=((grade+#{param1})/(com_cnt+1)) where booknum = #{param2}
+   </update>
+   
+   <!-- 댓글 삭제했을 때 booklist grade, com_cnt update -->
+   <update id="comDelBooklistUpdate">
+   		update booklist set 
+		grade = grade-(select grade from commentlist where com_num = #{param1}), 
+		com_cnt = com_cnt-1
+		where booknum = (select booknum from commentlist where com_num = #{param1})
+   </update>
+   
+   <!-- 댓글 삭제 -->
+   <delete id="comDel">
+   		delete commentlist where com_num = #{param1} 
+   </delete>
+   
+   <!-- 장바구니에 이미 담겨있는 책인지 check -->
+   <select id="checkCartBooknum" resultType="java.lang.Integer">
+   		select count(*) from cart where booknum = #{param1} and user_id = #{param2}
+   </select>
+   
+   <!-- 상세페이지 -> 장바구니 (insert)-->
+   <insert id = "cartin">
+      insert into cart(booknum, user_id, cart_count) values (#{param1}, #{param2}, #{param3})
+   </insert>
+   
+   <!-- 상세페이지 -> 장바구니 (update)-->
+   <update id = "cartup">
+      update cart set cart_count = cart_count + #{param1} where user_id = #{param2} and booknum = #{param3}
+   </update>
+   
+   <!-- 장바구니 테이블 보여주기 -->
+   <select id="cartTable" resultType="com.human24.main.dto.CartJDto">
+      select a.booktitle as booktitle, a.price as price, b.cart_count as cart_count, a.dis_index as dis_index, a.booknum as booknum, a.dis_per as dis_per
+      from booklist a, cart b
+      where a.booknum = b.booknum and b.user_id = #{param1}
+   </select>
+   
+   <!-- 장바구니 삭제 -->
+   <delete id="deleteCart">
+      delete cart where booknum = #{param1} and user_id = #{param2}
+   </delete>
+   
+   <!-- 장바구니 수량 업데이트 -->
+   <update id="cartupdate">
+      update cart set cart_count = #{param1} where booknum = #{param2} and user_id = #{param3}
+   </update>
+   
+   <!-- 주문페이지 -->
+   <select id="buy" resultType="com.human24.main.dto.bookDto">
+       select booknum, booktitle, price, dis_per from booklist where booknum = #{param1}
+   </select>
+   
+   <!-- 유저 정보 불러오기 -->   
+   <select id="getUserInfo" resultType="com.human24.main.dto.MemberDto">
+       select user_name, mobile, adr from member where user_id = #{param1}
+   </select>
+   
+   <!-- 구매했을 때 booklist sales_cnt 수량만큼 update -->
+   <update id="buyBooklistUpdate">
+   	   update booklist set sales_cnt = sales_cnt + #{param1} where booknum = #{param2}
+   </update>
+   
+   <!-- 구매했을 때 유저 총 포인트 업데이트 -->
+   <update id="totalPointUpdate">
+       update member set total_point = total_point + #{param1} where user_id = #{param2}
+   </update>
+   
+   <!-- 구매했을 때 유저 pur_count 한번만 1 증가시키기 -->
+   <update id="purCountUpdate">
+       update member set pur_count = pur_count+1 where user_id = #{param1}
+   </update>
+   
+   <!-- 구매했을 때 구매테이블에 구매정보 insert -->
+   <insert id="insertPurInfo">
+       <selectKey keyProperty="pur_count" resultType="int" order="BEFORE">  
+           select pur_count from member where user_id = #{param2} 
+       </selectKey>
+       insert into pur_info (booknum, user_id, buy_count, buy_date, pur_index, usepoint, book_size) 
+       values (#{param1},#{param2},#{param3},sysdate,#{pur_count},#{param4}, #{param5})
+   </insert>
+   
+   <!-- point pointlist에 insert -->
+   <insert id="insertPointList">
+       <selectKey keyProperty="totalPoint" resultType="int" order="BEFORE">  
+           select total_point from member where user_id = #{param1} 
+       </selectKey>
+   	   INSERT INTO pointlist (user_id, how_point, point_date, use_accu, beforepoint, afterpoint) 
+   	   VALUES (#{param1},#{param2},sysdate,#{param3},#{totalPoint},(#{totalPoint}+#{param3}))
+   </insert>
+   
+   <!-- 댓글작성 했을 때 point pointlist에 insert -->
+   <insert id="WriteCommentInsertPointList">
+       <selectKey keyProperty="totalPoint" resultType="int" order="BEFORE">  
+           select total_point from member where user_id = #{param1} 
+       </selectKey>
+   	   INSERT INTO pointlist (user_id, how_point, point_date, use_accu, beforepoint, afterpoint, booknum) 
+   	   VALUES (#{param1},#{param2},sysdate,#{param3},#{totalPoint},(#{totalPoint}+#{param3}),#{param4})
+   </insert>
+   
+   
+   <!-- 댓글 중복 작성 방지 -->
+   <select id="comCount" resultType="java.lang.Integer">
+   	   select count(*) from commentlist where user_id = #{param1} and booknum = #{param2}
+   </select>
+   
+   <!-- 구매한 책에 대해서 포인트 주기 (구매 기록 확인) -->
+   <select id = "buyRecord" resultType="java.lang.Integer">
+   	   select count(*) from pur_info where user_id = #{param1} and booknum = #{param2}
+   </select>
+   
+   <!-- 포인트를 받았던 책인지 확인 -->
+   <select id = "receivePoint" resultType="java.lang.Integer">
+   	   select count(*) from pointlist where user_id = #{param1} and booknum = #{param2}
+   </select>
+   
+   <!-- 구매한 책 장바구니에서 삭제 -->
+   <delete id = "buyDeleteCart">
+       delete cart where user_id = #{param1} and booknum = #{param2}
+   </delete>
+   
+   <!-- pointlist 출력 -->
+   <select id = "pointList" resultType="com.human24.main.dto.PointDto">
+   		select * from pointlist where user_id = #{param1} order by point_date desc
+   </select>
+   
+   <!-- totalpoint 가져오기 -->
+   <select id = "totalPoint" resultType = "java.lang.Integer">
+   		select total_point from member where user_id = #{param1}
+   </select>
+   
+   <!-- 구매 기록 가져오기 -->
+   <select id = "buyRecordSelect" resultType="com.human24.main.dto.orderJDto">
+	   SELECT a.booknum as booknum, b.booktitle as booktitle, a.buy_count as buy_count, a.buy_date as buy_date, b.price as price, b.dis_per as dis_per, a.book_size as book_size, a.pur_index as pur_index, a.usepoint as usepoint, b.dis_index as dis_index  
+	   FROM pur_info a, booklist b  
+	   WHERE a.booknum = b.booknum and a.user_id = #{param1} 
+	   ORDER BY buy_date desc
+   </select>
+   
+   
+   
+   
+   
+   <!-- 게시판 불러오기 -->
+     
+   <select id="NoticeCall" resultType="com.human24.main.dto.BoardDto">
+      SELECT * FROM 
+      (
+		SELECT a.*, rownum AS rnum FROM board a WHERE board_index = #{param1}
+      )
+	  where rnum between #{rowStart} and #{rowEnd}
+	  order by board_num desc
+   </select>
+   
+   <!-- 게시판 플래그 상태 불러오기 (config)-->
+   <select id="NoticeFlagCall" resultType="com.human24.main.dto.BoardDto">
+   	SELECT * FROM 
+      (
+		SELECT a.*, rownum AS rnum FROM board a WHERE board_index = #{param1} and flag = 0
+      )
+	  where rnum between #{rowStart} and #{rowEnd}
+   </select>
+   
+   <!-- 게시판 삭제 -->
+   <delete id="NoticeDelete">
+      DELETE board WHERE board_num = #{param1} 
+   </delete>
+   
+   <!-- 게시판 플래그 삭제 (config) -->
+   <update id="NoticeFlagDelete">
+   		update board set flag = 1 where board_num = #{param1}
+   </update>
+   
+   <!-- 게시판 수정 -->
+   <update id="NoticeUpdate">
+      UPDATE board SET title = #{param1}, contents = #{param2} WHERE board_num = #{param3}
+   </update>
+
+   <!-- 수정 게시판 작성 -->
+   <insert id="NoticeInsert">
+      INSERT into board
+      	(
+      		board_num, user_id, title, contents, board_index, board_date, views, dap_yn, flag, truename
+      	)VALUES 
+      	(
+      		board_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, sysdate, 0, 0, 0, #{param5}
+      	)
+   </insert>
+   
+   <!-- 게시판 가변 형식 작성 (config) -->
+   <insert id="NoticeConfigInsert" parameterType="java.util.HashMap">
+   insert into board(board_num, views, flag, dap_yn, board_date,
+   <foreach item="item" index="key" collection="_parameter.entrySet()" separator=",">
+   	${key}
+   	</foreach>)VALUES(board_seq.nextval, 0, 0, 0, sysdate,
+   	<foreach  item="value" index="key" collection="_parameter.entrySet()" separator=",">
+   		#{value}
+   	</foreach>)
+   </insert>
+   
+   <!-- 게시판 상세페이지 -->
+   <select id="NoticeDetail" resultType="com.human24.main.dto.BoardDto">
+      SELECT * FROM board WHERE board_num = #{param1}
+   </select>
+   
+   <!-- 게시판 해당 갯수 가져오기 -->
+   <select id="NoticeCount" resultType="java.lang.Integer">
+      SELECT count(*) FROM board WHERE board_index = #{param1}
+   </select>
+   
+    <!-- 게시판 플래그 해당 갯수 가져오기 -->
+   <select id="NoticeFlagCount" resultType="java.lang.Integer">
+      SELECT count(*) FROM board WHERE board_index = #{param1} and FLAG = 0 
+   </select>
+   
+   <!-- 조회수 증가 -->
+   <update id="viewsUpdate">
+   	  update board set views = views+1 where board_num = #{param1}
+   </update>
+   
+   <!-- 관리자인지 확인 -->
+   <select id="adminYN" resultType="java.lang.Integer">
+      SELECT count(*) from member where user_id = #{param1} and admin_index = 1
+   </select>
+   
+   <!-- 답글 달기 -->
+   <insert id="dapInsert">
+      INSERT into board(board_num, user_id, title, contents, board_index, board_date, views, dap_yn) 
+      VALUES (#{param1}, #{param2}, #{param3}, #{param4}, 1, sysdate, 0, 1)
+   </insert>
+
+   <!-- 답글 달았을 때 시퀀스 미루기 -->
+   <update id="boardNumUpdate">
+   	  UPDATE board 
+   	  SET board_num = board_num-1 
+   	  WHERE <![CDATA[ board_num < #{param1} ]]>
+   </update>   
+   
+   </mapper>

@@ -1,0 +1,67 @@
+@charset "EUC-KR";
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	font-family: 'Nanum Gothic';
+	outline: none;
+	box-sizing: border-box;
+}
+#weekDiv{
+    width: 884px;
+    margin: 0 auto;
+}
+#weekTitle{
+    margin: 30px 20px;
+    font-size: 36px;
+    font-weight: normal;
+
+}
+#bookDiv{
+    margin: 15px;
+    height: 400px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 70px;
+} 
+#bookDiv:hover{
+	font-weight: bold;
+}
+#bookDiv p {
+    margin-bottom: 3px;
+    color: #444;
+    font-size: 13px;
+    font-weight: bold;
+}
+.imgDiv img{
+    width: 188px;
+    height: 280px;
+}   
+.bookTitle{
+	margin: 15px 0 10px !important; 
+    font-size: 17px !important;
+    font-weight: bold;
+    height: 40px !important;
+}
+#weekDiv h3{
+	margin: 15px;
+}
+.blueStar{
+	color: rgb(102, 153, 204);
+}
+.grayStar{
+	color: #ccc;
+	display: inline-block;
+	margin-left: -3px !important;
+}
+.disPer{
+	color: rgb(102, 153, 204);
+}
+#noData{
+	margin: 50px 0;
+	text-align: center;
+	font-size: 25px;
+	color: #666;
+	font-weight: bold;
+}

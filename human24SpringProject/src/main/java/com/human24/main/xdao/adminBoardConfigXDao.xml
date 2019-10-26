@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.human24.main.idao.adminBoardConfigIDao">
+	<select id="boardAllList" resultType="com.human24.main.dto.AdminBoardConfigDto">
+		select * from boardconfig
+	</select>
+	
+	<select id="boardlistCount">
+		select count(*) from board group by board_index;
+	</select>
+	
+	<select id="boardConfigList" resultType="com.human24.main.dto.AdminBoardConfigDto">
+		select * from boardconfig where board_index = #{param1}
+	</select>
+	
+	<update id="boardConfigUpdate">
+		update boardconfig 
+		set BOARD_NAME = #{param1}, 
+		PRESENCE = #{param2}, 
+		PAGING = #{param3},
+		DELETE_COMPL = #{param4},
+		WRITE_AUTH = #{param5},
+		WRITER_COMPL = #{param6},
+		MOBILE_COMPL = #{param7}, 
+		EMAIL_COMPL = #{param8}, 
+		EMAIL_RECEIVE = #{param9},
+		DATE_COMPL = #{param10},
+		REPLY_COMPL = #{param11},
+		COMMENT_COMPL = #{param12},
+		COMMENT_AUTH = #{param13},
+		SECURITY_COMPL = #{param14},
+		UPDATE_DATE = SYSDATE
+		where board_index = #{param15}
+	</update>
+	
+	<select id="boardTitleView" parameterType="int" resultType="com.human24.main.dto.AdminBoardConfigDto">
+		select board_name from boardconfig where board_index = #{param1}
+	</select>
+	
+	<select id="boardPaging" parameterType="int" resultType="int">
+		select paging from boardconfig where board_index = #{param1}
+	</select>
+	
+	<select id="boardDeleteLogic" parameterType="int" resultType="String">
+		select DELETE_COMPL from boardconfig where board_index = #{param1}
+	</select>
+	
+	<select id="boardWriteAuth" parameterType="int" resultType="String">
+		select WRITE_AUTH from boardconfig where board_index = #{param1}
+	</select>
+</mapper>

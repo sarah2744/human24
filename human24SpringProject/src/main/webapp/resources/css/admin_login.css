@@ -1,0 +1,124 @@
+@charset "EUC-KR";
+
+*{
+    box-sizing: border-box;
+    font-family: 'Nanum Gothic';
+    margin: 0; padding: 0;
+    list-style: none;
+    text-decoration: none;
+    outline: none;
+}
+html,body,#wrap{
+    width: 100%;
+    height: 100%;
+}
+#wrap{
+    position: relative;
+    padding-top: 150px;
+}
+#wrap::before{
+    background-size: cover;
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("/main/resources/login_img.jpg");
+    width: 100%;
+    height: 100%;
+    filter: grayscale(00%);
+    z-index: -1;
+}
+
+#loginDiv{
+    margin : 0 auto;
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.562);
+    width: 500px;
+    height: 570px;
+    padding-top: 80px;
+    border-radius: 5px;
+}
+#logoText{
+	width: 100%;
+	text-align: center;
+    font-family: 'Lobster', cursive;
+    font-size: 55px;
+    margin-left: 100px;
+    color: #2730ad;
+    font-weight: normal;
+    width: 300px;
+}
+form{
+    margin-top: 50px;
+    text-align: center;
+}
+.input{
+    width: 90%;
+    text-align: center;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.input::placeholder{
+    color: #888;
+}
+.inputP{
+    background-color: rgba(255, 255, 255, 0.801);
+    border: 1px solid #ccc;
+    width: 80%;
+    margin: 0 auto 20px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 5px;
+}
+form p:nth-child(3){
+    text-align: left;
+    margin: 20px 0 20px 55px;
+}
+form p:nth-child(3) label{
+    font-size: 12px;
+    color: #222;
+}
+#autoLogin{
+    position:relative;
+    top: 2.5px;
+}
+#loginBtn{
+    width: 398px;
+    height: 55px;
+    border-radius: 5px;
+    background-color: rgb(28, 28, 28);
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.3s background-color;
+    margin-bottom: 30px;
+}
+#loginBtn:hover{
+    background-color: rgb(154, 2, 0);
+}
+form div{
+    width: 80%;
+    margin: 0 auto;
+}
+form div p a{
+    color: #222;
+    font-size: 14px;
+    padding: 0 3px;
+    font-weight: bold;
+    transition: 0.2s color;
+}
+#leftP{
+    float:left;
+}
+#rightP{
+    float: right;
+}
+form div p a:hover{
+    color: rgb(154, 2, 0);
+}

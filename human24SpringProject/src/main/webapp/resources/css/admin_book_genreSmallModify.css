@@ -1,0 +1,32 @@
+#shadowDiv{
+    margin-bottom: 300px;
+}
+#detailTbl tr td textarea{
+    resize: none;
+    width: 90%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+#detailTbl tr td textarea:focus{
+    border: 1px solid gray;
+}
+#detailTbl input[type="text"]{
+    border:none;
+    border-bottom: 1px solid #ccc;
+    width: 50%;
+    padding: 15px;
+}
+#detailTbl input[type="text"]:focus{
+    border-bottom: 1px solid gray;
+}
+.numField{
+    width: 10% !important;
+}
+#detailTbl select{
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    color: #333;
+}

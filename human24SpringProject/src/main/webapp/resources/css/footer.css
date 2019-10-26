@@ -1,0 +1,49 @@
+@charset "EUC-KR";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box
+}
+
+footer { /*footer*/
+	clear: both;
+	text-align: center;
+	margin: 100px auto 0;
+	width: 884px;
+	font-family: 'Nanum Gothic';
+	border-top: 1px solid #ccc;
+}
+
+footer ul {
+	padding: 40px 0;
+}
+
+footer ul li {
+	display: inline;
+}
+
+footer ul li a {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	background: black;
+	border-radius: 40px;
+	margin: 0 10px;
+}
+
+footer i {
+	margin-top: 10px;
+	font-size: 20px;
+	color: white;
+}
+
+footer a:hover {
+	opacity: 0.7;
+}
+
+footer .text {
+	margin-bottom: 50px;
+	color: gray;
+	font-size: 13px;
+}

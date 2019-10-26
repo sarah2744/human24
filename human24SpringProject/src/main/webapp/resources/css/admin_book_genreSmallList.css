@@ -1,0 +1,45 @@
+#titleDiv{
+    margin-bottom: 30px;
+}
+#genreP{
+    float: left;
+}
+#order {
+    text-align: right;
+    margin: 45px 40px !important; 
+    margin-right: 20px;
+}
+
+#order li {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+#order li:hover {
+    color: #f2685b;
+}
+.orderOn{
+    color: #f2685b;
+}
+.btn{
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+#listTbl tbody tr td img{
+    width: 120px;
+    height: 170px;
+}
+#listTbl tbody tr td{
+    font-size: 15px;
+    color: #333;
+}
+.btitle{
+    font-weight: bold;
+}
+#shadowDiv{
+    margin-bottom: 300px;
+}

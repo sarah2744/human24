@@ -1,0 +1,164 @@
+@charset "EUC-KR";
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	font-family: 'Nanum Gothic';
+	outline: none;
+	box-sizing: border-box;
+}
+#title {
+	margin: 30px 20px;
+	font-weight: normal;
+	padding: 10px;
+}
+
+#boardtbl {
+	margin-top: 50px;
+	padding: 30px;
+	border-collapse: collapse;
+}
+
+#boardtbl tr td:first-child {
+	font-weight: bold;
+	width: 20%;
+	text-align: center;
+}
+
+#boardtbl tr {
+	border-bottom: 1px solid rgb(190, 190, 190);
+}
+
+#boardtbl tr td {
+	padding: 30px;
+}
+
+#inputtitle {
+	width: 100%;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid #ccc;
+	height: 30px;
+}
+
+#contents {
+	width: 100%;
+	border: 1px solid #ccc;
+	outline: none;
+	padding: 5px;
+}
+
+#boardtbl tr:last-child {
+	border: none;
+}
+
+.btn {
+	border-radius: 5px;
+	color: #fff;
+	background-color: #3f48ccc0;
+	border: 1px solid #3f48ccc0;
+	width: 150px;
+	height: 50px;
+	font-size: 16px;
+	margin-top: 10px;
+	cursor: pointer;
+	transition: 0.3s all;
+}
+.btn2{
+	border-radius: 5px;
+	color: #fff;
+	background-color: #3f48ccc0;
+	border: 1px solid #3f48ccc0;
+	padding: 5px 10px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: 0.3s all;
+}
+.btn:hover {
+	background-color: black;
+}
+.btn2:hover{
+	background-color: black;
+}
+.reBtn{
+	margin-left: 5px;
+}
+#btnWrite {
+	margin-left : 10px;
+	width: 100px;
+}
+#txtComment, #txtReply {
+	padding: 10px;
+	width : 500px;
+	height : 50px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+#txtComment:focus, #txtReply:focus {
+	border: 1px solid #aaa;
+}
+
+#dap{
+	display:none;
+}
+#comlistdiv{
+	display: none;
+	background-color: rgb(240, 240, 240);
+	padding: 30px;
+	text-align: center;
+}
+#commenttbl {
+	background-color: white;
+	margin-top: 30px;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+	width:100%;
+}
+
+#commenttbl td, #commenttbl th {
+	padding: 10px;
+	vertical-align: middle;
+}
+#commenttbl tr td:first-child{
+	width : 20%;
+}
+
+#commenttbl tr td:nth-child(2){
+	width : 50%;
+}
+
+#commenttbl tr td:nth-child(3){
+	width : 10%;
+}
+#commenttbl tr td:last-child{
+	width: 20%;
+}
+.comDel {
+	margin-left:5px;
+	border : none;
+	background-color : #3f48ccc0;
+	border: 1px solid #3f48ccc0;
+	border-radius: 5px;
+	transition: 0.3s all;
+	color: #fff;
+	cursor: pointer;
+}
+
+.comDel:hover {
+	background-color: black;
+}
+
+.comReply {
+	border : none;
+	background-color : #3f48ccc0;
+	border: 1px solid #3f48ccc0;
+	border-radius: 5px;
+	transition: 0.3s all;
+	color: #fff;
+	cursor: pointer;
+}
+
+.comReply:hover {
+	background-color: black;
+}

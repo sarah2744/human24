@@ -1,0 +1,80 @@
+*{
+    list-style: none;  
+  }
+  #genreContainer {
+      margin: 0 auto;
+      text-align: center;
+  }
+  #menubar {
+      border-radius: 5px;
+  }
+  #menubar>.title {
+      font-size: 14px;
+      text-align: center;
+      line-height: 50px;
+      border: none;
+      background-color: #3f48cc9d;
+      border-collapse: collapse;
+      color: white;
+      font-weight: bold;
+      width: 14%;
+      height: 50px;
+      cursor: pointer;
+      float: left;
+      margin-top: 30px;
+      transition: 0.3s all;
+      border-right: 1px solid #3f48cc;
+  }
+  .title:last-child{
+      border-right: none !important;
+  }
+  #menubar>.title:hover{
+      background-color: #3f48cc;
+  }
+  
+  .mainName{
+	font-size: 14px;
+    border: none;
+    background-color: #3f48cc9d;
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+    color: white;
+}
+
+
+  .smallTitle {
+      height:auto;
+      padding:0px;
+      margin:0px;
+      border:0px;
+      width: 100%;
+  }
+  .smallTitle li {
+      background-color: #3f48cc28;
+      color: black;
+      height: 50px;
+      font-weight: normal;
+      font-size: 13px;
+      transition: 0.25s all;
+      z-index: 5;
+      border-top: none;
+      font-weight: bold;
+  }
+
+  .smallTitle li:first-child {
+      border-top: 1px solid #2730ada8;
+      z-index: 5;
+  }
+
+  .smallTitle li:hover {
+      z-index: 5;
+      background-color: #3f48cc;
+      color: white;
+  }
+  p{
+      color: #333;
+      font-size: 20px;
+      padding: 30px 50px 0;
+      font-weight: bold;
+  }

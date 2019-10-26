@@ -1,0 +1,65 @@
+@charset "EUC-KR";
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	font-family: 'Nanum Gothic';
+	outline: none;
+	box-sizing: border-box;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th {
+	text-align: center;
+	background-color: rgba(204, 204, 204, 0.39);
+}
+
+.check {
+	text-align: left;
+    width: 115px;
+    height: 75px;
+    color: #333;
+}
+
+#container {
+	margin: 0 auto;
+	width: 800px;   
+}
+
+#title {
+	padding: 20px;
+}
+
+#todayMonth {
+	text-align: center;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+#acDivLeftP{
+    float: left;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #666;
+}
+#acDivRightP{
+    float: right;
+    margin-right: 10px;
+}
+#acBtn{
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.3s all;
+    color: #fff;
+    background-color: #3f48ccc0;
+    border: none;
+}
+
+#acBtn:hover{
+    background-color: black;
+}

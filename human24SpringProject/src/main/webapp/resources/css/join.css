@@ -1,0 +1,135 @@
+@charset "EUC-KR";
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	font-family: 'Nanum Gothic';
+	outline: none;
+	box-sizing: border-box;
+}
+
+#title { 
+	margin: 30px 20px 0 20px;
+	padding-bottom: 50px;
+	border-bottom: 1px solid #ccc;
+}
+
+.clear {
+	clear: both;
+}
+
+section {
+	width: 882px;
+	margin: 0 auto;
+}
+
+#logoDivBox {
+	width: 300px;
+	padding: 120px 30px 100px 30px;
+	float: left;
+}
+
+#jointxt {
+	width: 580px;
+	float: right;
+}
+
+#jointxt #policyBox {
+	width: 500px;
+	overflow: scroll;
+	resize: none;
+}
+
+#loginForm {
+	width: 700px;
+	margin: 0 auto;
+	padding: 50px 0;
+}
+
+#loginForm tr td {
+	padding: 10px 0;
+	font-size: 13px;
+	color: #333;
+}
+
+#loginForm table td:first-child {
+	width: 150px;
+	padding-right: 20px;
+	text-align: end;
+}
+
+#loginForm td input[type="text"], #loginForm td input[type="password"] {
+	padding: 10px;
+	width: 320px;
+	height: 30px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+#loginForm tr:nth-child(5) input {
+	width: 100px;
+	margin-right: 20px;
+}
+
+#loginForm tr:nth-child(5) input:nth-child(2) {
+	width: 70px;
+	margin-right: 10px;
+}
+
+#loginForm tr:nth-child(6) input {
+	width: 20px;
+	margin-left: 80px;
+}
+
+#loginForm tr:nth-child(7) input {
+	width: 100px;
+}
+
+#loginForm tr:nth-child(9) input {
+	width: 150px;
+}
+
+#loginForm tr:nth-child(10) input {
+	width: 30%;
+}
+
+.btn {
+	padding: 10px;
+	width: 130px !important;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.3s all;
+	background-color: #3f48ccd0;
+	color: white;
+	cursor: pointer;
+	color: #fff;
+	border: none;
+}
+
+.btn:hover {
+	background-color: black !important;
+}
+
+#btnDiv {
+	text-align: center;
+	margin-top: 30px;
+	padding-top: 30px;
+	border-top: 1px solid #ccc;
+	clear: both;
+}
+
+#adr {
+	width: 90% !important;
+}
+
+#loginForm tr:last-child input:nth-child(2) {
+	width: 100px;
+	margin: 0 !important;
+	border: none;
+	color: red;
+}
+
+#btnDiv input[type="button"]{
+	font-size: 18px;
+}

@@ -1,0 +1,45 @@
+@charset "EUC-KR";
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	font-family: 'Nanum Gothic';
+	outline: none;
+	box-sizing: border-box;
+}
+#title {
+	margin: 30px 20px;
+}
+
+#wrapping {
+	text-align: center;
+	margin: 80px 0px;
+}
+
+#buyDiv, #sellDiv {
+	width: 300px;
+	height: 300px;
+	border-radius: 300px;
+	display: inline-block;
+	font-size: 35px;
+	color: #fff;
+	background-color: #3f48ccdc;
+	border: 1px solid #3f48ccc0;
+	cursor: pointer;
+	transition: 0.3s all;
+}
+
+#buyDiv:hover, #sellDiv:hover {
+	color: black;
+	background-color: #aeb3ff;
+	border: 1px solid white;
+}
+
+#buyDiv {
+	margin-right: 80px;
+}
+
+.cont {
+	margin-top: 100px;
+}

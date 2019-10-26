@@ -1,0 +1,316 @@
+@charset "EUC-KR";
+
+*{
+    box-sizing: border-box;
+    font-family: 'Nanum Gothic', sans-serif;
+    margin: 0; padding: 0;
+    list-style: none;
+    text-decoration: none;
+    outline:none;
+    color: #333;
+}
+.clear{
+    clear: both;
+}
+#wrap{
+    width: 1700px;
+    margin: 0 auto;
+}
+
+/****************************************************************************************************************** header */
+	#logo h1{
+		float: left;
+	}
+	#logo p{
+		float: right;
+	    margin: 20px;
+	    font-size: 14px;
+	    color: #666;
+	}
+	#adminId{
+		color: tomato;
+		font-weight: bold;
+	}
+	#logout{
+		cursor:pointer;
+		display: inline-block;
+		margin-left: 10px;
+		font-weight: bold;
+		color: #2730ad;
+	}
+	#hello{
+		display: none;
+	}
+	
+	
+#logo{
+    margin: 20px 0 10px;
+    height: 75px;
+}
+#logo h1{
+    font-family: 'Lobster', cursive;
+    font-size: 55px;
+    margin-left: 20px;
+    color: #2730ad;
+    font-weight: normal;
+    width: 300px;
+}
+#mainMenu{
+    border-bottom: 1px solid #ccc;
+}
+#mainMenu ul li{
+    display: inline-block;
+    cursor: pointer;
+    width: 130px;
+    height: 60px;
+    margin-right: -6px;
+    text-align: center;
+    line-height: 60px;
+    font-weight: bold;
+    transition: 0.3s color;
+}
+#mainMenu ul li:hover{
+    color: #f2685b;
+}
+.mainOn{
+    color: #f2685b;
+}
+
+
+#subMenu{
+    margin-top: 50px;
+    width: 13%;
+    float: left;
+}
+#subMenu ul{
+    box-shadow: 3px 3px 3px #ccc;
+    border: 1px solid rgb(240, 240, 240);
+
+}
+
+#subMenu ul li{
+    cursor: pointer;
+    font-size: 13.5px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 0px;
+    transition: 0.3 color;
+}
+#subMenu ul li:hover{
+    color: red;
+}
+.subOn{
+    color: red;
+}
+/*****************************************************************************************************/
+#section{
+    float: right;
+    height: 20px;
+    padding-top: 50px;
+    width: 84%;
+}
+#titleDiv{
+    border: 1px solid rgb(240, 240, 240);
+    border-bottom: 1px solid #ccc;
+}
+#titleDiv h1{
+    padding: 20px;
+    font-size: 35px;
+    color: black;
+}
+
+
+
+#shadowDiv{
+    box-shadow: 3px 3px 3px #ccc;
+    border: 1px solid rgb(235, 235, 235);
+}
+
+
+.blueStar{
+	color: rgb(102, 153, 204);
+}
+.grayStar{
+	color: #ccc;
+	display: inline-block;
+}
+/**************************************************************************************************** btn css*/
+.btn{
+    border-radius: 5px;
+    background-color: rgb(28, 28, 28);
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s background-color;
+}
+.btn:hover{
+    background-color: rgb(154, 2, 0);
+}
+
+.btn2{
+	cursor: pointer;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: 0.3s all;    
+    margin-right: 10px;
+}
+.btn2:hover{
+	color: #f2685b;
+    border: 1px solid #f2685b;
+}
+
+#schDiv{
+    text-align: center;
+    padding: 0 0 60px 0px;
+}
+#schDiv input[type="text"]{
+    padding: 11px;
+    width: 200px;
+    border: 1px solid #ccc;
+    display:inline-block;
+}
+#schBtn{
+    margin:0;
+    margin-left: 5px;
+    background-color: #ccc;
+    color: black;
+    border: 1px solid gray;   
+}
+#schBtn:hover{
+    background-color: #1c1c1c;
+    color: white;
+}
+
+
+/*********************************************************************************************** Å×ÀÌºí css */
+  #listTbl{
+      width:95%;
+      margin: 0 auto;
+      text-align: center;
+      border-collapse: collapse;
+      border: 1px solid rgb(240, 240, 240);
+      border-bottom: none;
+  }
+  #listTbl tr{
+      border-bottom: 1px solid rgb(230, 230, 230);
+  }
+  #listTbl tbody tr{
+  	cursor: pointer;
+      transition: 0.3s all;
+  }
+  #listTbl tbody tr:hover{
+  	background-color: rgb(250, 250, 250);
+  }
+  #listTbl th, #listTbl td{
+      padding: 15px;
+  }
+  #listTbl td{
+      font-size: 13px;
+      color: #555;
+  }
+  #listTbl thead tr{
+      background-color: rgb(240, 240, 240);
+      border-bottom: 1px solid #ccc !important;
+  }
+
+  #boardAddBtn{
+  	padding: 10px 20px;
+  	margin: 30px;
+  }
+
+  #listPage {
+      text-align: center;
+      margin-top: 50px;
+      
+  }
+
+  #listPage li {
+      display: inline-block;
+      width: 35px;
+      line-height: 35px;
+      text-align: center;
+      height: 35px;
+      border: 1px solid #ccc;
+      transition: 0.3s all;
+      cursor: pointer;
+      font-size: 12px;
+  }
+
+  #listPage li:hover {
+      background-color: black;
+      color: white;
+  }
+
+  #listPageDiv{
+      margin-bottom: 200px;
+  }
+  
+  .buttonTd button{
+      cursor: pointer;
+	  width: 150px;
+	  height: 50px;
+	  background-color: transparent;
+	  border: 1px solid #ddd;
+	  font-weight: bold;
+	  font-size: 15px;
+	  border-radius: 5px;
+	  margin: 15px 3px;
+	  transition: 0.3s all;   
+  }
+.buttonTd button:hover{
+    color: #f2685b;
+    border: 1px solid #f2685b;
+}
+  
+#searchDiv{
+    background-color: rgb(49, 58, 67);
+    padding: 20px;
+    margin-bottom: 0px;
+    border-radius: 3px;
+}
+.searchField{
+    display: inline-block;
+    background-color: white;
+    width: 130px;
+    outline: none;
+    border: none;
+    height: 35px;
+    padding: 10px;
+    margin-right: 15px;
+    border-radius: 3px;
+}
+
+#searchField{
+    width: 200px;  
+    border: none;
+}
+
+#searchDiv #schBtn{
+    cursor: pointer;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    background-color: white;
+}
+#searchDiv #schBtn{
+    font-size: 18px;
+}
+
+#searchDiv select{
+	width: 130px;
+	height: 35px;
+}
+
+#writeTbl th{
+	width: 20%;
+}

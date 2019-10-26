@@ -1,0 +1,133 @@
+@charset "EUC-KR";
+
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	font-family: 'Nanum Gothic';
+	outline: none;
+	box-sizing: border-box;
+}
+#wrap {
+	margin: 0 auto;
+	width: 884px;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* 서브메뉴 */
+.subMenuUlClass {
+	margin: 10px 10px 50px 10px;
+}
+
+.subMenuUlClass {
+	float: right;
+}
+
+.subMenuUlClass li {
+	display: inline-block;
+	margin-left: 10px;
+}
+
+.subMenuUlClass li a {
+	font-size: 13px;
+	color: black;
+	cursor: pointer;
+	padding-bottom: 4px;
+}
+
+.subMenuUlClass li a:hover {
+	font-weight: bold;
+	color: #3f48cc;
+}
+#subMenuUl{
+	display: none;
+}
+
+/* 로고 */
+#logoSearchDiv {
+	width: 100%;
+	margin: 50px 30px 40px 40px;
+	padding-top: 50px;
+}
+
+#logoDiv {
+	float: left;
+}
+
+#logo {
+	font-family: 'Lobster', cursive;
+	font-size: 55px;
+	color: #2730ad;
+	font-weight: normal;
+	width: 300px;
+}
+
+/* 검색바 */
+#searchDiv {
+	float: right;
+	margin: 30px;
+	padding-right: 20px;
+}
+
+#schBar {
+	width: 400px;
+	height: 30px;
+	margin-right: 10px;
+	border: none;
+	outline: none;
+	padding: 5px;
+	border-bottom: 1px solid #ccc;
+}
+
+#schIcon {
+	font-size: 20px;
+	cursor: pointer;
+}
+
+#schIcon:hover {
+	color: #3f48cc;
+}
+
+/* 메인메뉴 */
+
+#mainMenu {
+	margin: 110px auto 40px;
+	clear: both;
+	text-align: center;
+	width: 100%;
+	background-color: #3f48ccd0;
+	padding: 15px;
+	border-radius: 10px;
+}
+
+#mainMenu ul {
+	margin: 0 auto;
+}
+
+#mainMenu ul li {
+	display: inline-block;
+	border-right: 1px solid #ccc;
+	width: 13%;
+}
+
+#mainMenu li:last-child {
+	border: none;
+}
+
+#mainMenu li a {
+	color: white;
+	font-size: 15px;
+}
+
+
+
+/* 통계 버튼 on */
+

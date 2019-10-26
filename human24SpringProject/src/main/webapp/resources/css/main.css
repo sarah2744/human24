@@ -1,0 +1,294 @@
+@charset "EUC-KR";
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	font-family: 'Nanum Gothic';
+	outline: none;
+	box-sizing: border-box;
+}
+a{
+	color: black;
+}
+aside{
+    height: 0 !important;
+}
+.clear{
+    clear: both;
+    margin-bottom: 100px;
+}
+
+body {
+    width: 884px;
+    margin: 0 auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+/*슬라이드 쇼 컨테이너 박스*/
+#slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: 5px auto 0;
+    float: left;
+}
+.mySlides img{
+	width: 100%;
+	height: 330px;
+}
+.txtSlide {
+    color: #000000;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/*슬라이드 버튼*/
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+/*슬라이드 흐려짐 효과*/
+.active {
+    background-color: #717171;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+
+}
+
+@media only screen and (max-width: 300px) {
+    .text {
+        font-size: 11px
+    }
+}
+
+/*로그인*/
+#loginform, #loginOk {
+    width: 250px;
+    float: right;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    /* background-color: #3f48ccd0; */
+    border-radius: 5px;
+}
+#loginform{
+	display: block;
+	height: 330px;
+}
+#btnLogin{
+	margin-bottom: 20px;
+}
+#loginOk{
+	width: 250px;
+	height: 311px;
+	display: none;
+}
+#loginform h1 {
+    margin-bottom: 10px;
+    color: black;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+#txtline{
+    text-align: center;
+    color: white;
+    margin-bottom: 10px;
+}
+#txtline a{
+    color: #555;
+    transition: 0.3s all;
+    font-size: 13px; 
+    font-weight: bold;
+}
+#txtline a:hover{
+    color: #3f48cc;
+}
+
+
+.input-container {
+    display: flex;
+    width: 90%;
+    margin-bottom: 15px;
+}
+.input-container i{
+    padding-top: 15px !important;    
+}
+
+
+/* Style the form icons */
+#loginform .icon {
+    padding: 10px;
+    background: #3f48ccc0;
+    color: white;
+    min-width: 40px;
+    text-align: center;
+}
+
+/* Style the input fields */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.input-field:focus {
+    outline: 1px solid rgba(128, 128, 128, 0.527);
+}
+.btn{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 90%;
+    height: 40px;
+    background-color:  white;
+    border: 1px solid #ccc; 
+    margin: 5px 0;
+    transition: 0.3s all;
+}
+.btnLogin{
+	
+}
+#naver{
+    background-color:  #03cf5d !important;
+    border: 1px solid #ccc; 
+    margin-bottom: 15px;
+    color: white;
+}
+.btn:hover{
+    background-color: black;
+    color: white;
+}
+#naver:hover{
+    background-color: black !important;
+    color: white;
+}
+section{
+    height: 300px;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 300px;
+}
+#besttext{
+    padding-bottom: 40px;
+    font-size: 30px;
+}
+
+#hello{
+	text-align: center;
+	color: #333;
+	font-size: 14px;
+	line-height: 25px;
+	font-weight: bold;
+	margin-top: 110px;
+}
+#loginOkId{
+	font-size: 18px;
+	color: #2730ad;
+}
+#bookDiv{
+    margin: 15px;
+    height: 400px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 70px;
+} 
+#bookDiv:hover{
+	font-weight: bold;
+}
+#bookDiv p {
+    margin-bottom: 3px;
+    color: #444;
+    font-size: 13px;
+    font-weight: bold;
+}
+.imgDiv img{
+    width: 190px;
+    height: 260px;
+}   
+.bookTitle{
+	margin: 15px 0 10px !important; 
+    font-size: 15px !important;
+    font-weight: bold;
+    height: 40px !important;
+}
+#weekDiv h3{
+	margin: 15px;
+}
+.blueStar{
+	color: rgb(102, 153, 204);
+}
+.grayStar{
+	color: #ccc;
+	display: inline-block;
+	margin-left: -3px !important;
+}
+.disPer{
+	color: rgb(102, 153, 204);
+}
+.mySlides{
+	width: 580px;
+}
+
+#hello{
+   text-align: center;
+   color: #333;
+   font-size: 14px;
+   line-height: 25px;
+   font-weight: bold;
+   margin-top: 110px;
+}
+#loginOkId{
+   font-size: 18px;
+   color: #2730ad;
+}
